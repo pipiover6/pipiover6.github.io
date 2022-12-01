@@ -8,10 +8,13 @@
   <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
-<div hidden>$\def\R{\mathbf{R}}\def\C{\mathbf{C}}$</div>
+<div hidden>$\def\R{\mathbf{R}}\def\Z{\mathbf{Z}}$</div>
 <body>
   <h2>mathematics, motivated</h2>
-  
+
+000 Result. Given a prime number $p$, the number of solutions to the equation $1+x^2=y^2$ with $x,y\in\Z/p$ is $p-1$. <br>
+000 Guidance. Use the factorization $y^2-x^2=(y-x)(y+x)$. <br>
+000 Explanation. The bijection $(x,y)\mapsto (y-x,y+x)$ of $(\Z/p)^2$ allows us to count instead the number of solutions to $ab=1$ with $a,b\in\Z/p$, which is of course $p-1$. <br> 
 Exercise. Let $f:[0,1]\to \R,\C$ be continuous. Then $f(t)=at+b$ is affine $\iff 0= {\displaystyle \lim_{h\to0}}\dfrac{f(t+h)-2f(t)+f(t-h)}{h^{2}}$ for all $t\in(0,1)$.
 
 </body>
