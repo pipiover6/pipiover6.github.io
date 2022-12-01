@@ -8,7 +8,7 @@
   <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
-<div hidden>$\def\C{\mathbf{C}}\def\R{\mathbf{R}}\def\Z{\mathbf{Z}}\def\eps{\varepsilon}\tms{^{\times}}$</div>
+<div hidden>$\def\C{\mathbf{C}}\def\R{\mathbf{R}}\def\Z{\mathbf{Z}}\def\eps{\varepsilon}\def\*{^{\times}}$</div>
 <body>
   <h2>mathematics, motivated</h2>
 
@@ -19,7 +19,7 @@
 (aab) Result. Given a continuous $f:[0,1]\to \R$, we have  ${\displaystyle \lim_{h\to0}}\dfrac{f(t+h)-2f(t)+f(t-h)}{h^{2}}=0$ for all $t\in(0,1)$ iff $f(t)=at+b$ is affine. <br><br>
 (aab) Guidance. If instead the given limit was positive at $t$, then we could not have a maximum at $t$. <br><br>
 (aab) Explanation. By linearity, after removing an affine term we may assume $f(0)=f(1)=0$, so long as we yield $f\equiv 0$. Let $f_{\eps}(t)=f(t)-\eps t(1-t)$. Then $f_\eps(t)$ has a positive limit approximating the second derivative at each $t\in(0,1)$. Thus $f_\eps(t)$ cannot attain its maximum at any inner point, and so $f_\eps(t)\le\max(f_\eps(0),f_\eps(1))=0$. Letting $\eps$ tend to $0$ we find $f(t)\le 0$. Applying the same logic to $-f(t)$ yields $f\equiv 0$ as we wanted. <br><br>
-(aac) Result. Given a continuous function $f:\R\to\C\tms$ we have $f(a+b)=f(a)f(b)$ for all $a,b\in\R$ iff $f(x)\equiv e^{\xi x}$ for some $\xi\in\C$. <br><br>
+(aac) Result. Given a continuous function $f:\R\to\C\*$ we have $f(a+b)=f(a)f(b)$ for all $a,b\in\R$ iff $f(x)\equiv e^{\xi x}$ for some $\xi\in\C$. <br><br>
 (aac) Guidance. Any continuous function $f:\R\to\C$ can be expressed as $f(x)=r(x)e^{i\theta(x)}$ for some continuous radius and angle functions $r>0$, $\theta\in\R$. <br><br>
 (aac) Explanation. We express $f(x)=e^{g(x)}$ for a continuous $g:\R\to\C$. We see that $f(0)=1$ and so we may assume $g(0)=0$. We then have $g(a+b)=g(a)+g(b)+2\pi iq(a,b)$ for a continuous $q:\R^2\to\Z$. Of course, this means $q$ is constant and we have $g(a+b)=g(a)+g(b)$, and so $g(x)=\xi x$ for some $\xi\in\C$, which is of course what we wanted.
 </body>
