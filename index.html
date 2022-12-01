@@ -8,16 +8,17 @@
   <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
-<div hidden>$\def\R{\mathbf{R}}\def\Z{\mathbf{Z}}$</div>
+<div hidden>$\def\R{\mathbf{R}}\def\Z{\mathbf{Z}}\def\eps{\varepsilon}$</div>
 <body>
   <h2>mathematics, motivated</h2>
 
 (aaa) Result. Given a prime number $p$, the number of solutions to the equation $1+x^2=y^2$ with $x,y\in\Z/p$ is $p-1$. <br><br>
-(aaa) Guidance. Use the factorization $y^2-x^2=(y-x)(y+x)$. <br>
+(aaa) Guidance. Use the factorization $y^2-x^2=(y-x)(y+x)$. <br><br>
 (aaa) Explanation. The bijection $(x,y)\mapsto (y-x,y+x)$ of $(\Z/p)^2$ allows us to count instead the number of solutions to $ab=1$ with $a,b\in\Z/p$, which is of course $p-1$. <br><br> 
 (aab) Motivation. Recall that $\dfrac{f(x_0+h)-2f(x_0)+f(x_0-h)}{h^2}$ is an approximation of $f''(x_0)$. <br><br>
-(aab) Result. Given a continuous $f:[0,1]\to \R$, we have $f(t)=at+b$ is affine $\iff 0= {\displaystyle \lim_{h\to0}}\dfrac{f(t+h)-2f(t)+f(t-h)}{h^{2}}$ for all $t\in(0,1)$. <br><br>
-(aab)
+(aab) Result. Given a continuous $f:[0,1]\to \R$, we have  ${\displaystyle \lim_{h\to0}}\dfrac{f(t+h)-2f(t)+f(t-h)}{h^{2}}=0$ for all $t\in(0,1)$ iff $f(t)=at+b$ is affine. <br><br>
+(aab) Guidance. If instead the given limit was positive at $t$, then we could not have a maximum at $t$. <br><br>
+(aab) Explanation. By linearity, after removing an affine term we may assume $f(0)=f(1)=0$. Now we need to yield $f=0$. Let $f_{\eps}(t)=f(t)-\eps t(1-t)$. Then $f_\eps(t)$ has a positive limit approximating the second derivative at each $t\in(0,1)$. Thus $f_\eps(t)$ cannot attain its maximum at any inner point, and so $f_\eps(t)\le\max(f_\eps(0),f_\eps(1))=0$. Letting $\eps$ tend to $0$ we find $f(t)\le 0$. Applying the same logic to $-f(t)$ yields $f=0$ as we wanted. 
   
 </body>
 </html>
