@@ -8,20 +8,24 @@
   <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
-<div hidden>$\def\C{\mathbf{C}}\def\R{\mathbf{R}}\def\Z{\mathbf{Z}}\def\eps{\varepsilon}\def\*{^{\times}}\def\({\left(}\def\){\right)}\def\disp{\displaystyle}$</div>
+<div hidden>$\def\C{\mathbf{C}}\def\R{\mathbf{R}}\def\Z{\mathbf{Z}}\def\eps{\varepsilon}\def\*{^{\times}}\def\({\left(}\def\){\right)}\def\disp{\displaystyle}\def\abs#1{\left|#1\right|}$</div>
 <body>
   <h2>mathematics, motivated</h2>
 
 (aaa) Result. Given an odd prime number $p$, we have exactly $p-1$ solutions to the equation $1+x^2=y^2$ with $x,y\in\Z/p$. <br><br>
 (aaa) Guidance. Use the factorization $y^2-x^2=(y-x)(y+x)$. <br><br>
 (aaa) Explanation. The bijection $(x,y)\mapsto (y-x,y+x)$ of $(\Z/p)^2$ allows us to count instead the number of solutions to $ab=1$ with $a,b\in\Z/p$, which is of course $p-1$. <br><br> 
-(aad) Result. Given an odd prime number $p$, a solution in $\Z/p$ exists to the equation $x^2+1=0$ if and only if $p\equiv 1$ mod $4$. <br><br>
+(aad) Result. Given an odd prime number $p$, we have in $\Z/p$ a solution to the equation $x^2+1=0$ if and only if $p\equiv 1$ mod $4$. <br><br>
 (aad) Guidance. Apply (aaa). <br><br>
 (aad) Explanation. We apply (aaa). Non zero solutions to $1+x^2=y^2$ come in groups of four, namely when $(x,y)$ is a solution so is $(\pm x,\pm y)$. There are two solutions with $x=0$, and there either $2$ or $0$ solutions with $y=0$, depending on whether $1+x^2=0$ is soluble. Since there is a total of $p-1$ solutions, we have a solution to $1+x^2=0$ over $\Z/p$ iff $p\equiv 1$ mod $4$, as we wanted. <br><br>
 (aae) Result. Given an odd prime $p$, we have $\disp\(\sum_{k=0}^{p-1} e^{\frac{2\pi i}{p} k^2}\)^2=(-1)^{\frac{p-1}{2}}p$. <br><br>
 (aae) Guidance. Use the factorization $k^2-\ell^2=(k-\ell)(k+\ell)$. Also use (aad). <br><br>
 (aae) Explanation. Write $\xi=\disp\sum_{k=0}^{p-1} e^{\frac{2\pi i}{p} k^2}$. Then $\xi\bar{\xi}=\disp\sum_{k,\ell=0}^{p-1}e^{\frac{2\pi i}{p} (k^2-\ell^2)}$. As $k^2-\ell^2=(k-\ell)(k+\ell)$ and $(x,y)\mapsto (y-x,y+x)$ is a bijection of $\(\Z/p\)^2$, we have $\xi\bar{\xi}=\disp\sum_{k,\ell=0}^{p-1}e^{\frac{2\pi i}{p} (k\ell)}=p$. It remains to see that $\bar{\xi}=(-1)^{\frac{p-1}{2}}\xi$, and this is a consequence of (aad). <br><br>
 (todo) Find the sign in $\disp\sum_{k=0}^{p-1} e^{\frac{2\pi i}{p} k^2}=\pm\sqrt{(-1)^{\frac{p-1}{2}}p}$. <br><br>
+(aaf) Result. Given a harmonic $f:\R^n\to\C$ with $\disp\lim_{\abs{x}\to\infty}f(x)=\ell$, we have $f\equiv \ell$. <br><br>
+(aag) Given a monic polynomial $f(z)$ with complex coefficients, we have $f(z)=(z-\alpha_1)\dots(z-\alpha_d)$ for some (not necessarily distinct) $\alpha_1,\dots,\alpha_k\in\C$. <br><br>
+(aag) Guidance. Use (aaf). <br><br>
+(aag) Explanation. Assume $f$ does not vanish in $\C$. Then $g(z)=\dfrac{z^d}{f(z)}$ is an entire function, which equals zero at the origin, and approaches $1$ as $z$ approaches infinity. By (aaf), this is impossible. <br><br>
 (aab) Motivation. Recall that $\dfrac{f(x_0+h)-2f(x_0)+f(x_0-h)}{h^2}$ is an approximation of $f''(x_0)$. <br><br>
 (aab) Result. Given a continuous $f:[0,1]\to \R$, we have  ${\displaystyle \lim_{h\to0}}\dfrac{f(t+h)-2f(t)+f(t-h)}{h^{2}}=0$ for all $t\in(0,1)$ iff $f(t)=at+b$ is affine. <br><br>
 (aab) Guidance. If instead the given limit was positive at $t$, then we could not have a maximum at $t$. <br><br>
