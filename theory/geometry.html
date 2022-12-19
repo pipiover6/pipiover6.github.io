@@ -8,14 +8,14 @@
   <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
-<div hidden>$\def\S{\mathbf{S}}\def\Q{\mathbf{Q}}\def\sub{\subseteq}\def\FF{\mathcal{F}}\def\C{\mathbf{C}}\def\R{\mathbf{R}}\def\Z{\mathbf{Z}}\def\eps{\varepsilon}\def\*{^{\times}}\def\({\left(}\def\){\right)}\def\disp{\displaystyle}\def\d{\text{d}}\def\len{\text{length}}\def\area{\text{area}}\def\abs#1{\left|#1\right|}$</div>
+<div hidden>$\def\S{\mathbf{S}}\def\Q{\mathbf{Q}}\def\sub{\subseteq}\def\FF{\mathcal{F}}\def\C{\mathbf{C}}\def\R{\mathbf{R}}\def\Z{\mathbf{Z}}\def\eps{\varepsilon}\def\*{^{\times}}\def\({\left(}\def\){\right)}\def\diag{\text{diag}}\def\disp{\displaystyle}\def\d{\text{d}}\def\len{\text{length}}\def\area{\text{area}}\def\abs#1{\left|#1\right|}$</div>
 <body>
 
-Argument. Let $S$ be a smooth surface in $\R^3$ and $\gamma:I\to S$ be a curve on $S$. 
+Motivation. Let $S$ be a smooth surface in $\R^3$ and $\gamma:I\to S$ be a curve on $S$. 
 Then $\disp\len(\gamma)=\int_I \abs{\dot\gamma}$. <br>
 To compute this in practice, we have a (not necessarily complete) 
 parametrization $X:D\to S$ with $D\sub \R^2$. We call the coordinate variables in $\R^2$ $u,v$ to avoid confusion. <br>
-Then $\gamma(t) = X(u(t),v(t))$, and so $\dot\gamma(t) = X_u u'(t) + X_v v'(t)$ and 
+Taking $\gamma(t) = X(u(t),v(t))$, we have $\dot\gamma(t) = X_u u'(t) + X_v v'(t)$ and so
 $\disp\abs{\dot\gamma(t)}^2=u'(t)^2\abs{X_u}^2 + 2u'(t)v'(t)X_u\cdot X_v + v'(t)^2\abs{X_v}^2$. <br>
 Similarly, to compute the surface area, we have (assuming $X$ is a complete parametrization) $\disp \area(S)=\int_D \abs{X_u\times X_v}\d u\d v=\int_D \sqrt{\abs{X_u}^2\abs{X_v}^2-(X_u\cdot X_v)^2}\d u\d v$
 <br><br>
@@ -24,9 +24,23 @@ E & F\\
 F & G
 \end{bmatrix}$ where $E=\abs{X_u}^2$, $F=X_u\cdot X_v$, and $G=\abs{X_v}^2$. 
 <br><br>
-In these terms $\sqrt{EG-F^2}=\sqrt{\det I}$ is the area of the parallelogram spanned by $X_u$ and $X_v$, so that $\area=\int_D \sqrt{EG-F^2}$. <br>
-Similarly, $\len = \int_I \sqrt{u'^2 E + 2u'v' G + v'^2 F}$.
+In these terms $\sqrt{EG-F^2}=\sqrt{\det I}$ is the area of the parallelogram spanned by $X_u$ and $X_v$, so that $\area=\int\int \sqrt{EG-F^2}$. Similarly, $\len = \int \sqrt{u'^2 E + 2u'v' G + v'^2 F}$.
 <br><br>
-
+Exercise. Use the above to compute the surface areas of spheres and tori.
+<br><br>
+Motivation. For curves in $2$d, the curvature measured the rate of change of the tangent line changed. So for surfaces in $3$d, we'd like to measure how the tangent plane changes. Notice that we have two dimensions in which we can move the point and measure the change of the tangent plane. For example, if $S$ is a cylinder around the $z$ axis, then moving a point up does not change the tangent plane, while moving a point around does.
+<br><br>
+We can define the tangent plane of $S$ at $p$ as the plane of all derivatives of curves through $p$ on $S$. Computationally, if $S$ is given by $F(x,y,z)=0$ where $\nabla F\neq 0$, then the tangent plane at $p$ is the plane orthogonal to $\nabla F|_p$.
+<br><br>
+Definition. A smooth surface $S$ is orientable if there exists a smooth map $N:S\to \S^2$ for which $N(p) \perp T_p(S)$ at all $p\in S$. This makes it so $T_p(S)$ and $T_{N(p)}(\S^2)$ are parallel.
+<br><br>
+Exercise. Show that $S$ is always locally orientable. Moreover, there are only two possibilities for the map $N$, namely $N$ and $-N$.
+<br><br>
+Temporary definition. The curvature of an orientable smooth surface $S$ at a point $p$ is the differential $\d N: T_pS\to T_{N(p)}\S^2$. Given a parametrization $X$, we can take $N=\dfrac{X_u\times X_v}{\abs{X_u\times X_v}}$, with $N_u = aX_u + cX_v$ and $N_v = bX_u + dX_v$. Then we can think of $\d N$ as the matrix $\begin{bmatrix}
+a & b\\ 
+c & d
+\end{bmatrix}$, where this of course depends on $u,v$.
+<br><br>
+Example. The cylinder $x^2+y^2=R^2$. We have $X(u,v)=(R\cos u,R\sin u,v)$. Thus $X_u = (-R\sin u,R\cos u,0)$ and $X_v = (0,0,1)$ and $N=(\cos u,\sin u,0)$. Therefore $N_v=0$, and $N_u=X_u/R$. Thus $\d N$ is given by $\diag(1/R,0)$, as we might expect.
 </body>
 </html>
