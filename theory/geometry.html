@@ -42,5 +42,13 @@ c & d
 \end{bmatrix}$, where this of course depends on $u,v$.
 <br><br>
 Example. The cylinder $x^2+y^2=R^2$. We have $X(u,v)=(R\cos u,R\sin u,v)$. Thus $X_u = (-R\sin u,R\cos u,0)$ and $X_v = (0,0,1)$ and $N=(\cos u,\sin u,0)$. Therefore $N_v=0$, and $N_u=X_u/R$. Thus $\d N$ is given by $\diag(1/R,0)$, as we might expect.
+<br><br>
+Exercise. The curvature of $z=y^2-x^2$ at the origin is $\diag(2,-2)$.
+<br><br>
+Claim. $\d N$ defines a symmetric bilinear form on $T_p(S)$, in the sense that $N_u\cdot X_v=N_v\cdot X_u$. In particular, it has two real eigenvalues $\lambda_1,\lambda_2$, and these are the principal curvatures. Their product, the determinant of $\d N$ is the Gaussian curvature denoted $K=\lambda_1\lambda_2$. This is independent of the sign choice of $N$ or the parametrization.
+<br><br>
+Exercise. Let $X:D\to S$ be a parametrization where the orientation $N$ is injective on $X(D)$ and the Gaussian curvature does not vanish. Then the area covered on $\S^2$ as $N(X(D))$ equals 
+$\int_D \abs{K} \abs{X_u\times X_v}$. <br>
+In particular, $\abs{K_p}$ is the limit of $\area(N(A))/\area(A)$ as $A$ shrinks to $\{p\}$.
 </body>
 </html>
