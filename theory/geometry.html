@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> pipiover6 </title>
+  <link rel="stylesheet" href="../styles.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], processEscapes: true }}); </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<div hidden>$\def\S{\mathbf{S}}\def\Q{\mathbf{Q}}\def\sub{\subseteq}\def\FF{\mathcal{F}}\def\C{\mathbf{C}}\def\R{\mathbf{R}}\def\Z{\mathbf{Z}}\def\eps{\varepsilon}\def\*{^{\times}}\def\({\left(}\def\){\right)}\def\disp{\displaystyle}\def\d{\text{d}}\def\len{\text{length}}\def\area{\text{area}}\def\abs#1{\left|#1\right|}$</div>
+<body>
+
+Argument. Let $S$ be a smooth surface in $\R^3$ and $\gamma:I\to S$ be a curve on $S$. 
+Then $\disp\len(\gamma)=\int_I \abs{\dot\gamma}$. <br>
+To compute this in practice, we have a (not necessarily complete) 
+parametrization $X:D\to S$ with $D\sub \R^2$. We call the coordinate variables in $\R^2$ $u,v$ to avoid confusion. <br>
+Then $\gamma(t) = X(u(t),v(t))$, and so $\dot\gamma(t) = X_u u'(t) + X_v v'(t)$ and 
+$\disp\abs{\dot\gamma(t)}^2=u'(t)^2\abs{X_u}^2 + 2u'(t)v'(t)X_u\cdot X_v + v'(t)^2\abs{X_v}^2$. <br>
+Similarly, to compute the surface area, we have (assuming $X$ is a complete parametrization) $\disp \area(S)=\int_D \abs{X_u\times X_v}\d u\d v=\int_D \sqrt{\abs{X_u}^2\abs{X_v}^2-(X_u\cdot X_v)^2}\d u\d v$
+<br><br>
+Definition. Given a parametrization $X:D\to S$, the first fundamental form $I$ is the Gram matrix of the partials $X_u,X_v$. Namely $I=\begin{bmatrix}
+E & F\\ 
+F & G
+\end{bmatrix}$ where $E=\abs{X_u}^2$, $F=X_u\cdot X_v$, and $G=\abs{X_v}^2$. 
+<br><br>
+In these terms $\sqrt{EG-F^2}=\sqrt{\det I}$ is the area of the parallelogram spanned by $X_u$ and $X_v$, so that $\area=\int_D \sqrt{EG-F^2}$. <br>
+Similarly, $\len = \int_I \sqrt{u'^2 E + 2u'v' G + v'^2 F}$.
+<br><br>
+
+</body>
+</html>
