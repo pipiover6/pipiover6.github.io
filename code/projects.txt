@@ -1,0 +1,21 @@
+1 
+  hashtable/dictionary
+  
+  specs:
+  keys are (arbitrary length) strings, values are objects of several supported types (at least basic types like strings, ints, floats)
+  fast search of equality of objects by storing their hash digest in the unused bits to their pointers (not all 64 bits of a pointer are in use).
+  (in addition, this entropy bit trick can be used to store the type of an object)
+  
+  possible specs:
+  support values of more types, such as collections (arrays,lists,sets,dictionaries), replace the naive string by something like the rope data structure.
+  
+  implementation possibilities:
+  robin hood hashing
+  cuckoo hashing
+  double hashing [possibly with chunks, as in f14]
+  chain hashing [could have chunks, like in f14]
+
+
+  possible implementation possibilities:
+  if growing the dictionary is painful (in terms of memory peak + execution time), we can split the dictionary from the start to a constant number of tables
+  (key is sent to the table with index equal to the key's hash mod num tables, say). this way the tables are "independent" and can grow/shrink individually.
