@@ -20,3 +20,4 @@
   if growing the dictionary is painful (in terms of memory peak + execution time), we can split the dictionary from the start to a constant number of tables
   (key is sent to the table with index equal to the key's hash mod num tables, say). this way the tables are "independent" and can grow/shrink individually.
   also look into better string library to replace regular strings.
+  look into using mesh instead of libc malloc.
