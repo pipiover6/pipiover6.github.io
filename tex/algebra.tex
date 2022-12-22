@@ -1,0 +1,68 @@
+\documentclass[english]{article}
+	\usepackage[latin9]{inputenc}
+	\usepackage{geometry}
+	\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+	\setlength{\parindent}{0bp}
+	\usepackage{mathrsfs}
+	\usepackage{amsmath}
+	\usepackage{setspace}
+	\usepackage{esint}
+	\usepackage{marginnote}
+	\usepackage{hyperref}
+	\usepackage{mathpazo} % font %
+	\usepackage{eulervm} % font %
+	\usepackage{MnSymbol}
+	\usepackage{xcolor}
+
+	\newcommand\cyan[1]{{\color{blue}{#1}}}
+	\newcommand\orange[1]{{\color{orange}{#1}}}
+	\newcommand{\qed}{$\hfill\blacksquare$}
+\begin{document}
+\section*{0}
+\cyan{Some natural numbers, such as $6=2\cdot 3$, $9=3\cdot 3$, $15=3\cdot 5$, $24=2\cdot 12=3\cdot 8$, $51=3\cdot 17$ and $91=7\cdot 13$ may be decomposed as a product of smaller terms. The remaining numbers, including $1,2,3,5,7,11,13,17,19,\dots,93,97,\dots$ cannot be factored to smaller terms.}
+\\\\
+Definition. Let $n,k$ be integers, $0<k$. We say $k$ is a factor[divisor] of $n$ if $n=kr$ for some integer $r$. We write this relation as $k\mid n$, and also say $n$ is divisibly by $k$.
+\\\\
+\cyan{For given $k$, the integers divisibly by $k$ are $\dots0,k,2k,3k,4k,5k,\dots$ as well as $-k,-2k,-3k,-4k,-5k,\dots$.}
+\\\\
+Understand. We have
+\begin{itemize}
+\item $1\mid k$ and $k\mid k$.
+\item $k\mid r$ and $r\mid n$ imply $k\mid n$.
+\item $k\mid n$ and $k\mid m$ imply $k\mid m\pm n$.
+\item $k\mid r$ and $n\mid m$ imply $kn\mid rm$.
+\item Given any pair of integers $n,k$ with $k>0$, there exists a unique representation $n=kt+s$ with $0\le s<k$.
+\\
+\end{itemize} 
+\cyan{Decomposing a natural number into a product of factors is analogous to decomposing physical matter into its elements. A water molecule is built of two hydrogen atoms and one oxygen atom, is analogous to $12$ being built of two $2$'s and one $3$, with $12=2\cdot 2\cdot 3$. }
+\\\\
+Definition. A natural number $p>1$ whose only divisors are one and itself is called a prime number.
+\\\\
+\cyan{Namely, a prime number is a number one cannot further divide. In formula, $p>1$ is prime if $a\mid p$ implies $a=1$ or $a=p$.}
+\\\\
+Understand. Each integer $n>1$ can be decomposed as a product of prime numbers (not necessarily different).
+\\\\
+\cyan{Note that we can factor $24$ in several ways - $2\cdot 12$, $3\cdot 8$, $4\cdot 6$. Continuing to divide all numbers until it is no longer possible, however, we always arrive at the same factorization, $24=2\cdot2\cdot2\cdot3$. To prove the uniqueness of the prime decomposition for all numbers, we first return to the chemistry analogy. When we form a product by mixing two substances in some way, and encounter an atom (a basic element) in the product, then this atom must have come from one of the two substances. In the number world, we have the analogous theorem.}
+\\\\
+Theorem. If the product $mn$ is divisible by a prime number $p$, then it must be that either $p\mid m$ or $p\mid n$.
+\\\\
+\cyan{The first three prime numbers are $2,3,5$. For $p=2$, the theorem simply states that a pair of odd numbers cannot have an even product. Indeed, any two odd numbers are of the $1+2k,1+2\ell$, with product $1+2(\ell+k+2\ell k)$. For $p=3$, a number not divisible by $3$ is of either form $1+3k$ or $2+3k$. So we have to verify that given two numbers where each is of either of these forms, their product is also in of of these forms. For $p=5$ there's already $4$ options for each form, so $16$ cases we have to check.}
+\\\\
+Understand. An equivalent formulation of above theorem is the following.
+\\\\
+\cyan{Theorem. Let $p$ be a prime number and $m,n$ be in $\{1,\dots,p-1\}$. Then $mn$ is not a product of $p$.}
+\\\\
+Proof. Assuming the theorem were false, we let $p$ be the smallest prime number for which it is false. Now, we have a pair $0<m,n<p$ with $mn=pk$. This means $0<k<p$. Of all such $k$ (for which there exists a corresponding pair $m,n$) we may assume the $k$ we have is minimal. Of course, $1<k$, for $p$ is prime. The key observation is that $k$ must be divisible by some prime number $q$, say $k=qd$, and we must have $q<p$, so that the theorem holds for $q$. As $q$ divides $kp=mn$, $q$ must divide $m$ or $n$. Without loss of generality $m=q\ell$. But now $\ell n=dp$ with $d<k$ means that $k$ was not in fact minimal with this property. \qed
+\\\\
+\orange{A similar proof appears in Disquisitiones Arithmeticae, Art. 13.}
+\\\\
+Understand. If $p$ is a prime number and $a_1a_2,\dots,a_k$ is any sequence of integers with $p\mid a_1\dots a_k$, then $p\mid a_j$ for some $1\le j\le k$.
+\\\\
+\cyan{The reason $2$ appears exactly $3$ times in the prime factorization $24=2\cdot2\cdot2\cdot3$ is because we can divide $24$ by $2$ three times, but no more. Namely, $24/2=12$, $12/2=6$, $6/2=3$, and $3$ cannot be divided by $2$. More generally, we define}
+\\\\
+Definition. Let $n$ be a positive integer and $p$ a prime number. "The number of times $n$ can be divided by $p$" is called the $p$ valuation of $n$ and denoted $\nu_p(n)$. Explicitly, $\nu_p(n)$ is the maximal non-negative integer $k$ for which $p^k\mid n$.
+\\\\
+Understand. As a corollary of the above theorem, if $n>1$ is an integer which decomposes as a product of (not necessarily distinct) primes $n=p_1p_2\dots p_k$, then for each prime number $p$, the number of times it appears in this factorization is precisely $\nu_p(n)$.
+
+
+\end{document}
