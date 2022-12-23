@@ -90,14 +90,18 @@ Understand. As a corollary of the above theorem, if $n>1$ is an integer which de
 \cyan{In this chapter, we will see that often, lines and circles are one and the same. This might come as a surprise, and so my first goal to informally convince you that "lines are just circles with infinite radius". We shall give several ways to see this.}
 \\\\
 Clearly, taking a circle of radius $R$ around the origin and increasing $R$ does not get us close to anything but infinity. But imagine taking a circle passing through the origin, whose center is located at $(0,R)$. Taking $R$ to infinity and standing near the origin, it would appear the circles converge to the $x$ axis.
-\href{https://www.desmos.com/calculator/c1u3qaeil2}{Here is a desmos visualization}
+\href{https://www.desmos.com/calculator/wnpht6jrmp}{Here} is a desmos visualization.
 \\\\
 In your experience of riding a bicycle or driving a car in a circular path, you may have noticed this can be done by keeping the steering wheel at a constant spot, and not changing your speed. To trace a bigger circular path, the wheel needs to be closer to straight. Of course, a when the wheel is straight, you travel in a straight line.
 \\\\
 When a point travels at a constant pace around a circle, the direction of its motion is tangent to the circle. \red{If this is surprising to you, or you are not sure what this means, approximate the circle with a perfect $n$-gon inside it, with $n=10^{100}$, and think of the motion there instead.} In total, if the circle had radius $R$ meters and it took us $2\pi R$ seconds to make a full lap, then during those $2\pi R$ seconds the direction of motion changed at a constant pace of $2\pi$ radians per $2\pi R$ seconds, or at $1/R$ radians per second. Taking $R$ to infinity, $1/R$ goes to zero. A motion where the direction in which we are headed does not change is a motion along a straight line.
 \\\\
 Here is a final argument with physics (or calculus). Imagine again a particle traveling along a circle of radius $R$ meters, at a constant rate, completing a full lap after $2\pi R$ seconds. Then the particle's acceleration is towards the circle's center, at a magnitude of $1/R$ (meter per second squared). Taking $R$ to infinity, $1/R$ goes to zero. A motion with zero acceleration is a motion at a constant pace along a straight line.
-\\\\ 
-
+\\\\
+\cyan{We will now discuss some transformations that map circles and lines to each other. The first such map is known as a stereographic projection. Imagine a plane passing containing the equator of the earth. Now imagine that for each point $P$ on earth, except for the north pole $N$, we draw a line from $N$ to $P$. The sterographic projection of $P$ is the intersection of this line with the plane. \href{https://www.desmos.com/calculator/yrlyyh1kvn}{Here} is a desmos visualization in one dimension less.
+%Notice that we can extend the stereographic projection continuosly to map the north pole to "the point at infinity". This makes sense, provided that there's one point at infinity, which is reached when traveling an infinite distance in any direction. Under this notion, it makes sense to think of every line (or plane) as containing the point at infinity.
+}
+\\\\
+\task Let $\Phi$ be the stereogrphic projection of the sphere to the plane. Show that for every circle $C$ on the sphere passing through the north pole $N$, its image in the plane under $\Phi$ is a straight line. Moreover, this mapping is a bijection between circles on the sphere passing through the north pole and straight lines in the plane.
 
 \end{document}
