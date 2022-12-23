@@ -16,14 +16,26 @@
 
 	\newcommand\cyan[1]{{\color{blue}{#1}}}
 	\newcommand\orange[1]{{\color{orange}{#1}}}
+	\newcommand\red[1]{{\color{red}{#1}}}
+	\newcommand\task{\red{Task. }}
 	\newcommand{\qed}{$\hfill\blacksquare$}
 \begin{document}
 \section*{0}
+The author believes the following.
+\\\\
+A mathematician is an explorer, playfully discovering how things work, with his/her own methods and understanding of the mathematical world. As an extension of this, in this book, what one can be reasonably expected to discover themselves is not spelled out, only guided towards. \\\\
+Except for brilliant insights which can appear to just come out of the blue, the reader must be motivated (i.e. feel it is natural) to explore an idea. As a corollary, proofs should often precede theorems (simply a reasoning with fruits).\\\\
+An explorer should not be given as many tools as the world can offer - at least not initially. It is best to explore, perhaps naively, in order to develop an intuition and have a better appreciation of the more advanced tools to come later that make everything easier. As a corollary, concrete scenarios precede abstractions.
+
+\newpage
+
+
+\section*{1}
 \cyan{Some natural numbers, such as $6=2\cdot 3$, $9=3\cdot 3$, $15=3\cdot 5$, $24=2\cdot 12=3\cdot 8$, $51=3\cdot 17$ and $91=7\cdot 13$ may be decomposed as a product of smaller terms. The remaining numbers, including $1,2,3,5,7,11,13,17,19,\dots,93,97,\dots$ cannot be factored to smaller terms.}
 \\\\
 Definition. Let $n,k$ be integers, $0<k$. We say $k$ is a factor[divisor] of $n$ if $n=kr$ for some integer $r$. We write this relation as $k\mid n$, and also say $n$ is divisibly by $k$.
 \\\\
-\cyan{For given $k$, the integers divisibly by $k$ are $\dots0,k,2k,3k,4k,5k,\dots$ as well as $-k,-2k,-3k,-4k,-5k,\dots$.}
+\cyan{For given $k$, the integers divisibly by $k$ are $0,k,2k,3k,4k,5k,\dots$ as well as $-k,-2k,-3k,-4k,-5k,\dots$.}
 \\\\
 Understand. We have
 \begin{itemize}
@@ -32,6 +44,7 @@ Understand. We have
 \item $k\mid n$ and $k\mid m$ imply $k\mid m\pm n$.
 \item $k\mid r$ and $n\mid m$ imply $kn\mid rm$.
 \item Given any pair of integers $n,k$ with $k>0$, there exists a unique representation $n=kt+s$ with $0\le s<k$.
+\item $k\mid n$ implies that either $n=0$ or $k\le |n|$.
 \\
 \end{itemize} 
 \cyan{Decomposing a natural number into a product of factors is analogous to decomposing physical matter into its elements. A water molecule is built of two hydrogen atoms and one oxygen atom, is analogous to $12$ being built of two $2$'s and one $3$, with $12=2\cdot 2\cdot 3$. }
@@ -52,13 +65,19 @@ Understand. An equivalent formulation of above theorem is the following.
 \\\\
 \cyan{Theorem. Let $p$ be a prime number and $m,n$ be in $\{1,\dots,p-1\}$. Then $mn$ is not a product of $p$.}
 \\\\
-Proof. Assuming the theorem were false, we let $p$ be the smallest prime number for which it is false. Now, we have a pair $0<m,n<p$ with $mn=pk$. This means $0<k<p$. Of all such $k$ (for which there exists a corresponding pair $m,n$) we may assume the $k$ we have is minimal. Of course, $1<k$, for $p$ is prime. The key observation is that $k$ must be divisible by some prime number $q$, say $k=qd$, and we must have $q<p$, so that the theorem holds for $q$. As $q$ divides $kp=mn$, $q$ must divide $m$ or $n$. Without loss of generality $m=q\ell$. But now $\ell n=dp$ with $d<k$ means that $k$ was not in fact minimal with this property. \qed
+Recommendation. Try to find a proof of the theorem by yourself before reading the proof in the next page. Even if it takes a week. I believe in you. All the tools you need are in this page.
+\newpage
+\cyan{To motivate the proof, say for concreteness sakes $p=97$ and $m=15$. We have $p\mid 15n$, and we want to deduce that $97\mid n$. Write $15n=97k$. Clearly, $3\mid 97k$. We can safely assume (as we are now tackling the case $p=97$ that the theorem holds for the prime $3$, and so $3\mid 97$ or $3\mid k$. But $97$ is prime, so it must be that $3\mid k$. We can then divide both sides of the equation by $3$ to yield $5n=97j$, a similar equation, only $15$ was decreased to $5$. We can do one more step of this argument, now with the prime $5$, to reach the desired $97\mid n$.}
 \\\\
-\orange{A similar proof appears in Disquisitiones Arithmeticae, Art. 13.}
+Proof. Let $p$ be a given prime number, and \red{suppose the theorem holds for all smaller prime numbers.} Fix a number $n$ for which there exists a number $1\le m$ where $m$ is not divisible by $p$ but $mn$ is divisible by $p$, say $mn=pk$. Our goal is to show that $p\mid n$, namely to show that "$m$ can be replaced with $1$". For this, \red{we shall assume the $m$ we picked is the smallest of all its possible values}. Our goal is to now show that $m=1$. By the minimality of $m$, we have that $m$ is in the range $1,\dots,p-1$. If $m$ were bigger than $1$, then $m$ would have a prime divisor $q$. Moreover, $q$ would be smaller than $p$ (because $m$ is smaller than $p$), so that $q\mid mn=pk$ implies $q$ divides either $p$ or $k$. Of course, $q$ cannot divide the prime $p$, so $q$ divides $k$. Writing $m=qr$, $k=qd$, we have reached the equation $rn=pd$, but now $1\le r < m$ is a contradiction the minimality of $m$. This finishes the proof. \qed
 \\\\
-Understand. If $p$ is a prime number and $a_1a_2,\dots,a_k$ is any sequence of integers with $p\mid a_1\dots a_k$, then $p\mid a_j$ for some $1\le j\le k$.
+\cyan{Let us sketch a second proof. Again, suppose $p=97$ and $m=15$. Then $97\mid 15n$, and we want to deduce that $97\mid n$. We notice it is easier to increase $15$ as follows: we must have $97\mid 30n$, then $97\mid 90n$. But this yields $97\mid 7n$, and we replaced $15$ by the smaller $7$. We can repeat this argument to make the $7$ smaller, etc.}
 \\\\
-\cyan{The reason $2$ appears exactly $3$ times in the prime factorization $24=2\cdot2\cdot2\cdot3$ is because we can divide $24$ by $2$ three times, but no more. Namely, $24/2=12$, $12/2=6$, $6/2=3$, and $3$ cannot be divided by $2$. More generally, we define}
+\task Make the above sketch into a rigorous proof.
+\\\\
+Understand. If $p$ is a prime number and $a_1,a_2,\dots,a_k$ is any sequence of integers with $p\mid a_1a_2\dots a_k$, then $p\mid a_j$ for some $1\le j\le k$.
+\\\\
+\cyan{The reason $2$ appears exactly $3$ times in the prime factorization $24=2\cdot2\cdot2\cdot3$ is because we can divide $24$ by $2$ three times, but no more. Namely, $24/2=12$, $12/2=6$, $6/2=3$, and $3$ cannot be divided by $2$. More generally.}
 \\\\
 Definition. Let $n$ be a positive integer and $p$ a prime number. "The number of times $n$ can be divided by $p$" is called the $p$ valuation of $n$ and denoted $\nu_p(n)$. Explicitly, $\nu_p(n)$ is the maximal non-negative integer $k$ for which $p^k\mid n$.
 \\\\
