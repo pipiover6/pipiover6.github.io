@@ -13,12 +13,18 @@
 	\usepackage{eulervm} % font %
 	\usepackage{MnSymbol}
 	\usepackage{xcolor}
-
+	\usepackage{outlines}
+	\usepackage{graphicx}
+	\def\C{\mathbf{C}}
+	\graphicspath{ {./imgs/} }
 	\newcommand\cyan[1]{{\color{blue}{#1}}}
 	\newcommand\orange[1]{{\color{orange}{#1}}}
 	\newcommand\red[1]{{\color{red}{#1}}}
 	\newcommand\task{\red{Task. }}
 	\newcommand{\qed}{$\hfill\blacksquare$}
+	\newcommand{\SubItem}[1]{
+    	{\setlength\itemindent{15pt} \item[-] #1 }
+	 }
 \begin{document}
 \section*{0}
 The author believes the following.
@@ -99,9 +105,41 @@ When a point travels at a constant pace around a circle, the direction of its mo
 Here is a final argument with physics (or calculus). Imagine again a particle traveling along a circle of radius $R$ meters, at a constant rate, completing a full lap after $2\pi R$ seconds. Then the particle's acceleration is towards the circle's center, at a magnitude of $1/R$ (meter per second squared). Taking $R$ to infinity, $1/R$ goes to zero. A motion with zero acceleration is a motion at a constant pace along a straight line.
 \\\\
 \cyan{We will now discuss some transformations that map circles and lines to each other. The first such map is known as a stereographic projection. Imagine a plane passing containing the equator of the earth. Now imagine that for each point $P$ on earth, except for the north pole $N$, we draw a line from $N$ to $P$. The sterographic projection of $P$ is the intersection of this line with the plane. \href{https://www.desmos.com/calculator/yrlyyh1kvn}{Here} is a desmos visualization in one dimension less.
-%Notice that we can extend the stereographic projection continuosly to map the north pole to "the point at infinity". This makes sense, provided that there's one point at infinity, which is reached when traveling an infinite distance in any direction. Under this notion, it makes sense to think of every line (or plane) as containing the point at infinity.
+%Notice that we can extend the stereographic projection continuosly to map the north pole to "the point at infinity". This makes sense, provided that there's one point at infinity, which is reached c in any direction. Under this notion, it makes sense to think of every line (or plane) as containing the point at infinity.
 }
 \\\\
-\task Let $\Phi$ be the stereogrphic projection of the sphere to the plane. Show that for every circle $C$ on the sphere passing through the north pole $N$, its image in the plane under $\Phi$ is a straight line. Moreover, this mapping is a bijection between circles on the sphere passing through the north pole and straight lines in the plane.
+Understand. Let $\Phi$ be the stereogrphic projection of the sphere to the plane. Show that for every circle $C$ on the sphere passing through the north pole $N$, its image in the plane under $\Phi$ is a straight line. Moreover, this mapping is a bijection between circles on the sphere passing through the north pole and straight lines in the plane.
+\\\\
+\cyan{We introduce a concept of "a point at infinity". We think of this point as an added point to $3$-space, which is reached "by traveling an infinite distance, no matter the direction". With this notion, we may extend the definition of the stereographic map so as to send $N$ to $\infty$. Moreover, we think of $\infty$ as being included in every line, and in every plane. In particular, parallel lines in the plane now intersect - at $\infty$. Similarly, non-parallel lines in the plane intersect at two points.}
+\\\\
+$$\includegraphics[scale=0.6]{sterographic-projection1.png}$$
+\\\\
+\cyan{Our next goal is to show that the sterographic projection maps circles not through $N$ to circles in the plane bijectively. This can be bashed out with formulas, but the path we'll take to this result is one Euclid could have walked.}
+\\\\
+Understand. The stereographic projection $\Phi$ has the following property: $NA\cdot NA'=2$ where $A'=\Phi(A)$.
+\\\\
+\cyan{The above property allows us to extend the stereographic projection to not be defined only on the sphere, but the entire $3$-space.}
+\\\\
+Definition. An inversion $\Phi$ (in $d$-space, centered at a point $N$, with positive constant $c$) is the mapping that takes each regular point $A$ to the point $A'$ on the ray from $N$ through $A$ for which $NA\cdot NA' = c$. For the two nonregular points $N$ and $\infty$, the inversion swaps them.
+\\\\
+Understand.
+\begin{itemize}
+\item The stereographic projection is the restriction of the inversion in $3$-space through $(0,0,1)$  with constant $2$.
+\item In $\C$, the inversion at $0$ with constant $1$ is given by $z\mapsto 1/\bar{z}$.
+\item $\Phi$ is an involution. Namely if $\Phi$ maps $A$ to $A'$, then it also maps $A'$ to $A$.
+\item The fixed points of $\Phi$ form the sphere centered at $N$ with radius $\sqrt{c}$.
+\item If $A,B$ are regular, then $NAB\sim NB'A'$.
+\begin{outline} 
+\item $\Phi$ maps spheres passing through $N$ to planes, and spheres not passing through $N$ to spheres (not passing through $N$). More precisely:
+\1 If $S$ is a sphere with diameter $NA$, then $\Phi(S)$ is the plane through $\Phi(A)$ orthogonal to $NA$, and
+\1 If $S$ is a sphere centered at $O$ not passing through $N$, then $\Phi(S)$ is the sphere with diameter $B'A'$ where $\{A,B\}$ is the intersection of the line $\ell(N,O)$ with $S$.
+\end{outline}
+\item The sterographic projection maps circles not through $N$ to circles in the plane bijectively.
+\\
+
+\end{itemize} 
+
+
+
 
 \end{document}
