@@ -24,13 +24,13 @@
 The author believes the following.
 \\\\
 A mathematician is an explorer, playfully discovering how things work, with his/her own methods and understanding of the mathematical world. As an extension of this, in this book, what one can be reasonably expected to discover themselves is not spelled out, only guided towards. \\\\
-Except for brilliant insights which can appear to just come out of the blue, the reader must be motivated (i.e. feel it is natural) to explore an idea. As a corollary, proofs should often precede theorems (simply a reasoning with fruits).\\\\
+Except for brilliant insights which can appear to just come out of the blue, the reader must be motivated (i.e. feel intrigued) to explore an idea. As a corollary, proofs should often precede theorems (simply a reasoning with fruits).\\\\
 An explorer should not be given as many tools as the world can offer - at least not initially. It is best to explore, perhaps naively, in order to develop an intuition and have a better appreciation of the more advanced tools to come later that make everything easier. As a corollary, concrete scenarios precede abstractions.
 
 \newpage
 
 
-\section*{1}
+\section*{1 - A first introduction to prime numbers}
 \cyan{Some natural numbers, such as $6=2\cdot 3$, $9=3\cdot 3$, $15=3\cdot 5$, $24=2\cdot 12=3\cdot 8$, $51=3\cdot 17$ and $91=7\cdot 13$ may be decomposed as a product of smaller terms. The remaining numbers, including $1,2,3,5,7,11,13,17,19,\dots,93,97,\dots$ cannot be factored to smaller terms.}
 \\\\
 Definition. Let $n,k$ be integers, $0<k$. We say $k$ is a factor[divisor] of $n$ if $n=kr$ for some integer $r$. We write this relation as $k\mid n$, and also say $n$ is divisibly by $k$.
@@ -82,6 +82,22 @@ Understand. If $p$ is a prime number and $a_1,a_2,\dots,a_k$ is any sequence of 
 Definition. Let $n$ be a positive integer and $p$ a prime number. "The number of times $n$ can be divided by $p$" is called the $p$ valuation of $n$ and denoted $\nu_p(n)$. Explicitly, $\nu_p(n)$ is the maximal non-negative integer $k$ for which $p^k\mid n$.
 \\\\
 Understand. As a corollary of the above theorem, if $n>1$ is an integer which decomposes as a product of (not necessarily distinct) primes $n=p_1p_2\dots p_k$, then for each prime number $p$, the number of times it appears in this factorization is precisely $\nu_p(n)$.
+
+
+\newpage
+
+\section*{? - lines and circles}
+\cyan{In this chapter, we will see that often, lines and circles are one and the same. This might come as a surprise, and so my first goal to informally convince you that "lines are just circles with infinite radius". We shall give several ways to see this.}
+\\\\
+Clearly, taking a circle of radius $R$ around the origin and increasing $R$ does not get us close to anything but infinity. But imagine taking a circle passing through the origin, whose center is located at $(0,R)$. Taking $R$ to infinity and standing near the origin, it would appear the circles converge to the $x$ axis.
+\href{https://www.desmos.com/calculator/c1u3qaeil2}{Here is a desmos visualization}
+\\\\
+In your experience of riding a bicycle or driving a car in a circular path, you may have noticed this can be done by keeping the steering wheel at a constant spot, and not changing your speed. To trace a bigger circular path, the wheel needs to be closer to straight. Of course, a when the wheel is straight, you travel in a straight line.
+\\\\
+When a point travels at a constant pace around a circle, the direction of its motion is tangent to the circle. \red{If this is surprising to you, or you are not sure what this means, approximate the circle with a perfect $n$-gon inside it, with $n=10^{100}$, and think of the motion there instead.} In total, if the circle had radius $R$ meters and it took us $2\pi R$ seconds to make a full lap, then during those $2\pi R$ seconds the direction of motion changed at a constant pace of $2\pi$ radians per $2\pi R$ seconds, or at $1/R$ radians per second. Taking $R$ to infinity, $1/R$ goes to zero. A motion where the direction in which we are headed does not change is a motion along a straight line.
+\\\\
+Here is a final argument with physics (or calculus). Imagine again a particle traveling along a circle of radius $R$ meters, at a constant rate, completing a full lap after $2\pi R$ seconds. Then the particle's acceleration is towards the circle's center, at a magnitude of $1/R$ (meter per second squared). Taking $R$ to infinity, $1/R$ goes to zero. A motion with zero acceleration is a motion at a constant pace along a straight line.
+\\\\ 
 
 
 \end{document}
