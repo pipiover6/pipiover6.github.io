@@ -15,7 +15,19 @@
 	\usepackage{xcolor}
 	\usepackage{outlines}
 	\usepackage{graphicx}
+	\def\d{\text{d}}
+	\def\lap{\Delta}
+	\def\id{\text{id}}
+	\def\hlf{\frac{1}{2}}
+	\newcommand\norm[1]{\left\Vert {#1}\right\Vert }
+	\renewcommand\to{\longrightarrow}
+	\def\eps{\varepsilon}
+	\def\sub{\subseteq}
+	\def\subn{\subset}
 	\def\C{\mathbf{C}}
+	\def\R{\mathbf{R}}
+	\def\disp{\displaystyle}
+	\newcommand\floor[1]{\lfloor{#1}\rfloor}
 	\graphicspath{ {./imgs/} }
 	\newcommand\cyan[1]{{\color{blue}{#1}}}
 	\newcommand\orange[1]{{\color{orange}{#1}}}
@@ -63,13 +75,9 @@ Understand. Each integer $n>1$ can be decomposed as a product of prime numbers (
 \\\\
 \cyan{Note that we can factor $24$ in several ways - $2\cdot 12$, $3\cdot 8$, $4\cdot 6$. Continuing to divide all numbers until it is no longer possible, however, we always arrive at the same factorization, $24=2\cdot2\cdot2\cdot3$. To prove the uniqueness of the prime decomposition for all numbers, we first return to the chemistry analogy. When we form a product by mixing two substances in some way, and encounter an atom (a basic element) in the product, then this atom must have come from one of the two substances. In the number world, we have the analogous theorem.}
 \\\\
-Theorem. If the product $mn$ is divisible by a prime number $p$, then it must be that either $p\mid m$ or $p\mid n$.
+Theorem. If neither of two numbers can be divided by the prime $p$, then their product cannot be divided by $p$ as well.
 \\\\
 \cyan{The first three prime numbers are $2,3,5$. For $p=2$, the theorem simply states that a pair of odd numbers cannot have an even product. Indeed, any two odd numbers are of the $1+2k,1+2\ell$, with product $1+2(\ell+k+2\ell k)$. For $p=3$, a number not divisible by $3$ is of either form $1+3k$ or $2+3k$. So we have to verify that given two numbers where each is of either of these forms, their product is also in of of these forms. For $p=5$ there's already $4$ options for each form, so $16$ cases we have to check.}
-\\\\
-Understand. An equivalent formulation of above theorem is the following.
-\\\\
-\cyan{Theorem. Let $p$ be a prime number and $m,n$ be in $\{1,\dots,p-1\}$. Then $mn$ is not a product of $p$.}
 \\\\
 Recommendation. Try to find a proof of the theorem by yourself before reading the proof in the next page. Even if it takes a week. I believe in you. All the tools you need are in this page.
 \newpage
@@ -87,32 +95,33 @@ Understand. If $p$ is a prime number and $a_1,a_2,\dots,a_k$ is any sequence of 
 \\\\
 Definition. Let $n$ be a positive integer and $p$ a prime number. "The number of times $n$ can be divided by $p$" is called the $p$ valuation of $n$ and denoted $\nu_p(n)$. Explicitly, $\nu_p(n)$ is the maximal non-negative integer $k$ for which $p^k\mid n$.
 \\\\
+Understand. One way to state the above theorem is via the formula $\nu_p(mn)=\nu_p(m)+\nu_p(n)$.
+\\\\
 Understand. As a corollary of the above theorem, if $n>1$ is an integer which decomposes as a product of (not necessarily distinct) primes $n=p_1p_2\dots p_k$, then for each prime number $p$, the number of times it appears in this factorization is precisely $\nu_p(n)$.
 
 
 \newpage
 
-\section*{? - lines and circles}
+\section*{2 - lines and circles}
 \cyan{In this chapter, we will see that often, lines and circles are one and the same. This might come as a surprise, and so my first goal to informally convince you that "lines are just circles with infinite radius". We shall give several ways to see this.}
-\\\\
-Clearly, taking a circle of radius $R$ around the origin and increasing $R$ does not get us close to anything but infinity. But imagine taking a circle passing through the origin, whose center is located at $(0,R)$. Taking $R$ to infinity and standing near the origin, it would appear the circles converge to the $x$ axis.
+\\
+\begin{itemize}
+\item Clearly, taking a circle of radius $R$ around the origin and increasing $R$ does not get us close to anything but infinity. But imagine taking a circle passing through the origin, whose center is located at $(0,R)$. Taking $R$ to infinity and standing near the origin, it would appear the circles converge to the $x$ axis.
 \href{https://www.desmos.com/calculator/wnpht6jrmp}{Here} is a desmos visualization.
-\\\\
-In your experience of riding a bicycle or driving a car in a circular path, you may have noticed this can be done by keeping the steering wheel at a constant spot, and not changing your speed. To trace a bigger circular path, the wheel needs to be closer to straight. Of course, a when the wheel is straight, you travel in a straight line.
-\\\\
-When a point travels at a constant pace around a circle, the direction of its motion is tangent to the circle. \red{If this is surprising to you, or you are not sure what this means, approximate the circle with a perfect $n$-gon inside it, with $n=10^{100}$, and think of the motion there instead.} In total, if the circle had radius $R$ meters and it took us $2\pi R$ seconds to make a full lap, then during those $2\pi R$ seconds the direction of motion changed at a constant pace of $2\pi$ radians per $2\pi R$ seconds, or at $1/R$ radians per second. Taking $R$ to infinity, $1/R$ goes to zero. A motion where the direction in which we are headed does not change is a motion along a straight line.
-\\\\
-Here is a final argument with physics (or calculus). Imagine again a particle traveling along a circle of radius $R$ meters, at a constant rate, completing a full lap after $2\pi R$ seconds. Then the particle's acceleration is towards the circle's center, at a magnitude of $1/R$ (meter per second squared). Taking $R$ to infinity, $1/R$ goes to zero. A motion with zero acceleration is a motion at a constant pace along a straight line.
-\\\\
+\item Instead of thinking of the circle increasing in size, we may think of a fixed circle, with a perspective on the boundary whose scope is shrinking. The circular arcs (or any smooth arc for that matter) become a line. This is the reason why the spiral milky way galaxy looks approximately straight from earth.
+\item In your experience of riding a bicycle or driving a car in a circular path, you may have noticed this can be done by keeping the steering wheel at a constant spot, and not changing your speed. To trace a bigger circular path, the wheel needs to be closer to straight. Of course, a when the wheel is straight, you travel in a straight line.
+\item When a point travels at a constant pace around a circle, the direction of its motion is tangent to the circle. \red{If this is surprising to you, or you are not sure what this means, approximate the circle with a perfect $n$-gon inside it, with $n=10^{100}$, and think of the motion there instead.} In total, if the circle had radius $R$ meters and it took us $2\pi R$ seconds to make a full lap, then during those $2\pi R$ seconds the direction of motion changed at a constant pace of $2\pi$ radians per $2\pi R$ seconds, or at $1/R$ radians per second. Taking $R$ to infinity, $1/R$ goes to zero. A motion where the direction in which we are headed does not change is a motion along a straight line.
+\item Here is a final argument with physics (or calculus). Imagine again a particle traveling along a circle of radius $R$ meters, at a constant rate, completing a full lap after $2\pi R$ seconds. Then the particle's acceleration is towards the circle's center, at a magnitude of $1/R$ (meter per second squared). Taking $R$ to infinity, $1/R$ goes to zero. A motion with zero acceleration is a motion at a constant pace along a straight line.\\
+\end{itemize}
 \cyan{We will now discuss some transformations that map circles and lines to each other. The first such map is known as a stereographic projection. Imagine a plane passing containing the equator of the earth. Now imagine that for each point $P$ on earth, except for the north pole $N$, we draw a line from $N$ to $P$. The sterographic projection of $P$ is the intersection of this line with the plane. \href{https://www.desmos.com/calculator/yrlyyh1kvn}{Here} is a desmos visualization in one dimension less.
 %Notice that we can extend the stereographic projection continuosly to map the north pole to "the point at infinity". This makes sense, provided that there's one point at infinity, which is reached c in any direction. Under this notion, it makes sense to think of every line (or plane) as containing the point at infinity.
 }
 \\\\
 Understand. Let $\Phi$ be the stereogrphic projection of the sphere to the plane. Show that for every circle $C$ on the sphere passing through the north pole $N$, its image in the plane under $\Phi$ is a straight line. Moreover, this mapping is a bijection between circles on the sphere passing through the north pole and straight lines in the plane.
 \\\\
-\cyan{We introduce a concept of "a point at infinity". We think of this point as an added point to $3$-space, which is reached "by traveling an infinite distance, no matter the direction". With this notion, we may extend the definition of the stereographic map so as to send $N$ to $\infty$. Moreover, we think of $\infty$ as being included in every line, and in every plane. In particular, parallel lines in the plane now intersect - at $\infty$. Similarly, non-parallel lines in the plane intersect at two points.}
-\\\\
 $$\includegraphics[scale=0.6]{sterographic-projection1.png}$$
+\\\\
+\cyan{We introduce a concept of "a point at infinity". We think of this point as an added point to $3$-space, which is reached "by traveling an infinite distance, no matter the direction". With this notion, we may extend the definition of the stereographic map so as to send $N$ to $\infty$. Moreover, we think of $\infty$ as being included in every line, and in every plane. In particular, parallel lines in the plane now intersect - at $\infty$. Similarly, non-parallel lines in the plane intersect at two points.}
 \\\\
 \cyan{Our next goal is to show that the sterographic projection maps circles not through $N$ to circles in the plane bijectively. This can be bashed out with formulas, but the path we'll take to this result is one Euclid could have walked.}
 \\\\
@@ -130,16 +139,128 @@ Understand.
 \item The fixed points of $\Phi$ form the sphere centered at $N$ with radius $\sqrt{c}$.
 \item If $A,B$ are regular, then $NAB\sim NB'A'$.
 \begin{outline} 
-\item $\Phi$ maps spheres passing through $N$ to planes, and spheres not passing through $N$ to spheres (not passing through $N$). More precisely:
-\1 If $S$ is a sphere with diameter $NA$, then $\Phi(S)$ is the plane through $\Phi(A)$ orthogonal to $NA$, and
+\item $\Phi$ maps spheres/hyperplanes to spheres/hyperplanes. More precisely:
+\1 If $P$ is a hyperplane through $N$, then $\Phi(P)=P$.
 \1 If $S$ is a sphere centered at $O$ not passing through $N$, then $\Phi(S)$ is the sphere with diameter $B'A'$ where $\{A,B\}$ is the intersection of the line $\ell(N,O)$ with $S$.
+\1 If $S$ is a sphere with diameter $NA$, then $\Phi(S)$ is the plane through $\Phi(A)$ orthogonal to $NA$.
+\1 Conversly, if $P$ is a hyperplane not containing $N$, then $\Phi(P)$ is a sphere through $N$.
 \end{outline}
-\item The sterographic projection maps circles not through $N$ to circles in the plane bijectively.
+\item Finally, the sterographic projection maps circles not through $N$ to circles in the plane bijectively.
 \\
-
 \end{itemize} 
+\cyan{In $\C\cup{\infty}$, let us circles and lines clines. Under the sterographic bijection with the unit sphere, clines in $\C\cup{\infty}$ correspond simply to circles in the sphere.}
+\\\\
+Understand. For each three (distinct) points $A,B,C\in \C\cup\infty$, there is a unique cline containing them.
+%Since $z\mapsto 1/\bar{z}$ is a bijection of clines, so is $I:z\mapsto 1/z$. But so is every $H:z\mapsto az+b$ for all $a,b\in \C$, $a\neq0$. It follows that any composition of these maps acts as a bijection of clines.}
 
+%Understand. The group $M$ of bijections of $\C\cup\infty$ of the form $z\mapsto \dfrac{az+b}{cz+d}$ is precisely the group generated by 
+\newpage
+\section*{? - unorganized}
+Theorem. $\nu_p(n!)=\floor{n/p}+\floor{n/p^2}+\floor{n/p^3}+\dots$
+\\\\
+Theorem. $(p-1)\nu_p(n!)=n-s_p(n)$ where $s_p(n)$ is the digit sum of $n$ in base $p$.
+\\\\
+Calculations. Let $X=X(u,v):D\sub\R^2\overset{\sim}{\to}S\subn \R^3$ be a surface parametrization. Let $$N=\dfrac{X_u\times X_v}{\norm{X_u\times X_v}}$$ be the normal, and
+$$\left(\begin{array}{cc}
+E & F\\
+F & G
+\end{array}\right)=\left(\begin{array}{cc}
+X_{u}\cdot X_{u} & X_{u}\cdot X_{v}\\
+X_{u}\cdot X_{v} & X_{v}\cdot X_{v}
+\end{array}\right)$$ be the first fundamental form, namely the surface isometry invariant. To compute the partials of the first fundamental form entries we write
+$$\begin{array}{ccc}
+X_{uu} =\alpha X_{u} + \beta X_{v} + eN\\\\
+X_{uv} = \eps X_{u} + \zeta X_{v} + fN\\\\
+X_{vv} = \gamma X_{u} + \delta X_{v} + gN
+\end{array}$$\\
+Then we have
+%$$
+%\begin{array}{ccccc}
+%X_{uu} & = & \alpha X_{u} + & \beta X_{v} + & eN\\
+%X_{vv} & = & \gamma X_{u} + & \delta X_{v} + & gN\\
+%X_{uv} & = & \eps X_{u} + & \zeta X_{v} + & fN
+%\end{array}
+%$$
+%\\
+$$
+\begin{array}{c}
+E_{u} = 2(\alpha E+\beta F)\\\\
+E_{v} = 2(\eps E+\zeta F)\\\\
+G_{u} = 2(\eps F+\zeta G)\\\\
+G_{v}  =  2(\gamma F+\delta G)\\\\
+F_u=\alpha F + \beta G + \eps E  + \zeta F\\\\
+F_v = \gamma E + \delta F + \eps F + \zeta G\\
+\end{array}
+$$\\
+Which mean
+$$\begin{array}{c}
+\left(\begin{array}{cc}
+E & F\\
+F & G
+\end{array}\right)\left(\begin{array}{c}
+\eps\\
+\zeta
+\end{array}\right)=\hlf\left(\begin{array}{c}
+E_{v}\\
+G_{u}
+\end{array}\right)\\\\
+\left(\begin{array}{cc}
+E & F\\
+F & G
+\end{array}\right)\left(\begin{array}{c}
+\alpha\\
+\beta
+\end{array}\right)=\hlf\left(\begin{array}{c}
+E_{u}\\
+2F_{u}-E_{v}
+\end{array}\right)\\\\
+\left(\begin{array}{cc}
+E & F\\
+F & G
+\end{array}\right)\left(\begin{array}{c}
+\gamma\\
+\delta
+\end{array}\right)=\hlf\left(\begin{array}{c}
+2F_{v}-G_{u}\\
+G_{v}
+\end{array}\right)
+\end{array}$$\\
+And so the first fundamental form determines $\alpha,\beta,\gamma,\delta,\eps,\zeta$. Gauss's theorem, which we shall now prove, is that $eg-f^2$ is also determined by the first fundamental form. Firstly, since $N\perp X_u$ and $N\perp X_v$ we have 
+$$\begin{array}{c}
+e=X_{uu}\cdot N=-N_{u}\cdot X_{u}\\
+f=X_{uv}\cdot N=-N_{v}\cdot X_{u}=-N_{u}\cdot X_{v}\\
+g=X_{vv}\cdot N=-N_{v}\cdot X_{v}
+\end{array}$$
+Moreover, since $\norm{N}\equiv 1$ we may write 
+$$\begin{array}{c}
+N_{u}=a^{11}X_{u}+a^{12}X_{v}\\
+N_{v}=a^{21}X_{u}+a^{22}X_{v}
+\end{array}$$\\
+which yields
+$$\left(\begin{array}{cc}
+a^{11} & a^{12}\\
+a^{21} & a^{22}
+\end{array}\right)\left(\begin{array}{cc}
+E & F\\
+F & G
+\end{array}\right)=-\left(\begin{array}{cc}
+e & f\\
+f & g
+\end{array}\right)$$\\
+We write $K=a^{11}a^{22}-a^{12}a^{21}=\dfrac{eg-f^2}{EG-F^2}$ for the Gaussian curvature. Now, we have
+$$\begin{array}{c}
+X_{uuv}=\alpha_{v}X_{u}+\alpha X_{uv}+\beta_{v}X_{v}+\beta X_{vv}+e_{v}N+eN_{v}\\
+X_{uvu}=\eps_{u}X_{u}+\eps X_{uu}+\zeta_{u}X_{v}+\zeta X_{uv}+f_{u}N+fN_{u}
+\end{array}$$
+Comparing the $X_v$ part we get 
+$$\alpha\zeta+\beta_{v}+\beta\delta+ea^{22}=\eps\beta+\zeta_{u}+\zeta^{2}+fa^{12}$$
 
-
-
+Now, by the matrix equation we have that
+$$\eps\beta+\zeta_{u}+\zeta^{2}-\alpha\zeta-\beta_{v}-\beta\delta=ea^{22}-fa^{12}=-EK$$
+is determined by the first fundamental form. Since $E$ is positive, $K$ is determined by the first fundamental form.\\
+Gauss's theorem, for example, implies that no part of a sphere can be isometrically embedded in the plane. Any map of the globe, no matter of how small a region, will have distorsions.
+\\\\
+In isothermal coordinates the first fundamental form equals $\lambda \id$. In this case the equations give $$K=-\dfrac{\lap \log \lambda}{2\lambda}$$.
+\\\\
+To me, this finally gives a definition of the curvature of the hyperbolic plane and shows it is $-1$. Indeed, the hyperbolic plane is nothing but $H=\{y>0\}$ with the metric given by $\dfrac{\sqrt{\d x^2+\d y^2}}{y}$. Namely, the first fundamental form is $y^{-2}\id$. This immediately yields $K=-1$.
 \end{document}
