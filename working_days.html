@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> days until </title>
+    </head>
+    <body onload = "onload_func()">
+        <input type="date" id="d1" oninput="write_working_days()">
+        <input type="date" id="d2" oninput="write_working_days()">
+        <p id="result"></p>
+    </body>
+    <script>
+        
+        function get_working_days()
+        {
+            var d1 = new Date(document.getElementById("d1").value);
+            var d2 = new Date(document.getElementById("d2").value);
+            if(d1 >= d2)
+                return 0;
+            var result = 0;
+            while((d1 < d2) && (d1.getDay() != d2.getDay()))
+            {
+                if(d1.getDay() != 0 && d1.getDay() != 6)
+                    result = result + 1;
+                d1.setDate(d1.getDate() + 1);
+            }
+            return result + 5 * ((d2 - d1)/(1000 * 60 * 60 * 24 * 7));
+        }
+        function write_working_days()
+        {
+            var x = Math.ceil(get_working_days());
+            document.getElementById("result").innerHTML = ("number of working days:" + x.toString());
+        }
+        function onload_func()
+        {
+            document.getElementById('d1').valueAsDate = new Date();
+            document.getElementById('d2').valueAsDate = new Date("2030-01-01");
+            write_working_days();
+        }
+    </script>
+</html>
