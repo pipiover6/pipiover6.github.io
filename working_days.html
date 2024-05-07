@@ -19,7 +19,7 @@
             var result = 0;
             while((d1 < d2) && (d1.getDay() != d2.getDay()))
             {
-                if(d1.getDay() != 5 && d1.getDay() != 6) // Hebrew version
+                if(d1.getDay() != 0 && d1.getDay() != 6)
                     result = result + 1;
                 d1.setDate(d1.getDate() + 1);
             }
@@ -32,7 +32,8 @@
         }
         function onload_func()
         {
-            document.getElementById('d1').valueAsDate = new Date();
+            var date = new Date();
+            document.getElementById('d1').valueAsDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)); // https://stackoverflow.com/questions/13646446/javascript-date-tojson-produces-a-date-which-has-wrong-hours-and-minutes
             document.getElementById('d2').valueAsDate = new Date("2030-01-01");
             write_working_days();
         }
