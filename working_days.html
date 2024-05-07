@@ -19,7 +19,7 @@
             var result = 0;
             while((d1 < d2) && (d1.getDay() != d2.getDay()))
             {
-                if(d1.getDay() != 0 && d1.getDay() != 6)
+                if(d1.getDay() != 5 && d1.getDay() != 6) // Hebrew version
                     result = result + 1;
                 d1.setDate(d1.getDate() + 1);
             }
