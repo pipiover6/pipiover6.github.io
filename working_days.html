@@ -4,13 +4,35 @@
         <title> days until </title>
     </head>
     <body onload = "onload_func()">
-        <input type="date" id="d1" oninput="write_working_days()">
-        <input type="date" id="d2" oninput="write_working_days()">
-        <p id="result"></p>
+        <input type="date" id="d1" oninput="write_working_days()"> start date <br> 
+        <input type="date" id="d2" oninput="write_working_days()"> end date <br>
+        <input type="number" id="pto" value=22 oninput="write_working_days()"> pto per year <br>
+        <input type="number" id="holiday" value=9 oninput="write_working_days()"> holiday per year <br>
+        <p id="days"></p>
+        <p id="week_days"></p>
+        <p id="weekends"></p>
+        <p id="pto+holiday"></p>
+        <p id="working_days"></p>
     </body>
     <script>
-        
-        function get_working_days()
+        function days_delta(d1, d2)
+        {
+            return (d2 - d1) / (1000 * 60 * 60 * 24)
+        }
+        function get_num_days()
+        {
+            var d1 = new Date(document.getElementById("d1").value);
+            var d2 = new Date(document.getElementById("d2").value);
+            return days_delta(d1, d2);
+        }
+        function get_non_working_week_days()
+        {
+            var per_year = parseInt(document.getElementById("pto").value) + parseInt(document.getElementById("holiday").value);
+            var per_day = per_year / 365.25;
+            var days = get_num_days();
+            return (days * per_day);
+        }
+        function get_week_days()
         {
             var d1 = new Date(document.getElementById("d1").value);
             var d2 = new Date(document.getElementById("d2").value);
@@ -23,12 +45,21 @@
                     result = result + 1;
                 d1.setDate(d1.getDate() + 1);
             }
-            return result + 5 * ((d2 - d1)/(1000 * 60 * 60 * 24 * 7));
+            return result + 5 * (days_delta(d1, d2) / 7);
         }
+
         function write_working_days()
         {
-            var x = Math.ceil(get_working_days());
-            document.getElementById("result").innerHTML = ("number of working days:" + x.toString());
+            var x0 = Math.ceil(get_num_days());
+            document.getElementById("days").innerHTML = ("days: " + x0.toString());
+            var x1 = Math.ceil(get_week_days());
+            document.getElementById("week_days").innerHTML = ("week days: " + x1.toString());
+            var x2 = Math.floor(get_non_working_week_days());
+            document.getElementById("pto+holiday").innerHTML = ("pto + holiday: " + x2.toString());
+            var x3 = x1 - x2;
+            document.getElementById("working_days").innerHTML = ("total working days: " + x3.toString());
+            var x4 = x0 - x1;
+            document.getElementById("weekends").innerHTML = ("weekend days: " + x4.toString());
         }
         function onload_func()
         {
