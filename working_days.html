@@ -25,13 +25,6 @@
             var d2 = new Date(document.getElementById("d2").value);
             return days_delta(d1, d2);
         }
-        function get_non_working_week_days()
-        {
-            var per_year = parseInt(document.getElementById("pto").value) + parseInt(document.getElementById("holiday").value);
-            var per_day = per_year / 365.25;
-            var days = get_num_days();
-            return (days * per_day);
-        }
         function get_week_days()
         {
             var d1 = new Date(document.getElementById("d1").value);
@@ -47,7 +40,13 @@
             }
             return result + 5 * (days_delta(d1, d2) / 7);
         }
-
+        function get_non_working_week_days()
+        {
+            var per_year = parseInt(document.getElementById("pto").value) + parseInt(document.getElementById("holiday").value);
+            var per_week_day = per_year / 260;
+            var week_days = get_week_days();
+            return (week_days * per_week_day);
+        }
         function write_working_days()
         {
             var x0 = Math.ceil(get_num_days());
